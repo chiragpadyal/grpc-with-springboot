@@ -2,6 +2,8 @@ package com.devproblems;
 
 import com.devProblems.Author;
 import com.devProblems.Book;
+import com.devProblems.Message;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -10,6 +12,17 @@ import java.util.List;
  * @YoutubeChannel https://www.youtube.com/channel/UCVno4tMHEXietE3aUTodaZQ
  */
 public class TempDB {
+
+    public static List<Message> getMessages() {
+        return new ArrayList<Message>() {
+            {
+                add(Message.newBuilder().setMessageId(1).setUserId(1).setText("Charles").build());
+                add(Message.newBuilder().setMessageId(2).setUserId(1).setText("Shakespeare").build());
+                add(Message.newBuilder().setMessageId(3).setUserId(1).setText("Rowling").build());
+                add(Message.newBuilder().setMessageId(4).setUserId(1).setText("Woolf").build());
+            }
+        };
+    }
 
     public static List<Author> getAuthorsFromTempDb() {
         return new ArrayList<Author>() {

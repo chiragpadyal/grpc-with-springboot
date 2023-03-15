@@ -1,0 +1,19 @@
+syntax = "proto3";
+option java_multiple_files = true;
+
+package com.devProblems;
+
+message Message {
+  int32 message_id = 1;
+  string text = 2;
+  int32 user_id = 3;
+}
+message User {
+  int32 user_id = 1;
+  string name = 2;
+}
+message Empty {}
+service MessageService {
+  rpc sendMessage(Message) returns (Message){};
+  rpc getMessages(Empty) returns (stream Message){};
+}

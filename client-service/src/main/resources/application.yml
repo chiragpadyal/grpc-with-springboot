@@ -1,6 +1,8 @@
 grpc:
   client:
     grpc-devproblems-service:
-      address: static://localhost:9000
+      address: static://localhost:9001
       negotiationType: plaintext
 
+server:
+  port: 8443

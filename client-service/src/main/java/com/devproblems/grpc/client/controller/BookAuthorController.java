@@ -1,11 +1,10 @@
 package com.devproblems.grpc.client.controller;
 
 import com.devproblems.grpc.client.service.BookAuthorClientService;
+import com.devproblems.grpc.client.service.MessageClientService;
 import com.google.protobuf.Descriptors;
 import lombok.AllArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Map;
@@ -19,6 +18,17 @@ import java.util.Map;
 public class BookAuthorController {
 
     final BookAuthorClientService bookAuthorClientService;
+    final MessageClientService messageClientService;
+
+    @GetMapping("/messages")
+    public List<Map<Descriptors.FieldDescriptor, Object>> getMessage() throws InterruptedException {
+        return messageClientService.getMessage();
+    }
+
+    @PostMapping("/messages")
+    public List<Map<Descriptors.FieldDescriptor, Object>> setMessage(@RequestBody String request) throws InterruptedException {
+        return messageClientService.sendMessage(request);
+    }
 
     @GetMapping("/author/{id}")
     public Map<Descriptors.FieldDescriptor, Object> getAuthor(@PathVariable String id) {

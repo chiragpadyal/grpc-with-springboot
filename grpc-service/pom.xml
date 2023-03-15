@@ -31,7 +31,7 @@
     <dependencies>
         <dependency>
             <groupId>com.sarang.devproblems</groupId>
-            <artifactId>proto</artifactId>
+            <artifactId>spring-boot-grpc</artifactId>
             <version>0.0.1-SNAPSHOT</version>
             <exclusions>
                 <exclusion>
